@@ -5,6 +5,9 @@ function SignUp() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmpassword, setConfirmPassword] = useState('');
+    const [msg, setMsg]=useState('')
+
+    const navigate=useNavigate();
 
     const signup = async() => {
         if (password !== confirmpassword){
@@ -19,10 +22,11 @@ function SignUp() {
               const json = await response.json()
               console.log(json)
               if (json){
-                // navigate to the right route
+                setMsg('Your user has been created')
               }
         } catch (err){
             console.log(err)
+            setMsg(err.message)
         }
       
     }
@@ -55,6 +59,8 @@ function SignUp() {
             />
 
             <button onClick={signup}>Sign Up</button>
+            <button onClick={()=>navigate('/')}>Click here to go to Sign in</button>
+            <div>{msg}</div>
         </div>
     );
 }

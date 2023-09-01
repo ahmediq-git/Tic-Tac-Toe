@@ -8,6 +8,7 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const user=useContext(UserContext)
+    const navigate= useNavigate();
 
     const login = async() => {
         try{
@@ -21,7 +22,7 @@ function Login() {
               if (json){
                 user.setUser(json)
                 localStorage.setItem('user', JSON.stringify(json))
-                console.log(localStorage)
+                navigate('/homepage')
 
               }
         } catch (err){
@@ -50,6 +51,7 @@ function Login() {
             />
 
             <button onClick={login}>Login</button>
+            <button onClick={()=>navigate('/sign-up')}>Click here to go to Sign up</button>
         </div>
     );
 }

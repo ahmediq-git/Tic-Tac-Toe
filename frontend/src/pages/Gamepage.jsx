@@ -1,12 +1,11 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import { UserContext } from '../App'
 import Board from '../components/Board'
-import Leaderboard from '../components/Leaderboard'
-import Rooms from '../components/Rooms'
+import { useNavigate } from 'react-router-dom'
 
 function Gamepage() {
   const user=useContext(UserContext)
-  
+
   const [server, setServer]=useState('')
   const [player1, setPlayer1]=useState('')
   const [player2, setPlayer2]=useState('not joined')
@@ -19,6 +18,16 @@ function Gamepage() {
   const getMessage=()=>{
 
   }
+
+  const navigate=useNavigate()
+
+
+
+  useEffect(()=>{
+    if (!user.user){
+      navigate('/')
+    }
+  },[])
 
 
   return (

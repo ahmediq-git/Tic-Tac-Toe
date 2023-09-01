@@ -1,11 +1,11 @@
 let state = {
     board: [['','',''],['','',''],['','','']],
-    player1symbol='X',
-    player2symbol='O',
-    player1='', //name of player 1
-    player2='', //name of player 2
-    move='player 1', //whose turn
-    server='1'
+    player1symbol: 'X',
+    player2symbol:'O',
+    player1: '', //name of player 1
+    player2: '', //name of player 2
+    move: 'player 1', //whose turn
+    server: '1'
 }
 
 const joinPlayer = (roomId, player) =>{
